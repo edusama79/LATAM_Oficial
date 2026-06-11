@@ -3,7 +3,7 @@
 clear && clear
 colores="$(pwd)/colores"
 rm -rf ${colores}
-wget -O ${colores} "https://raw.githubusercontent.com/NetVPS/LATAM_Oficial/main/Ejecutables/colores" &>/dev/null
+wget -O ${colores} "https://raw.githubusercontent.com/edusama79/LATAM_Oficial/main/Ejecutables/colores" &>/dev/null
 [[ ! -e ${colores} ]] && exit
 chmod +x ${colores} &>/dev/null
 source ${colores}
@@ -30,7 +30,7 @@ os_system() {
   esac
 }
 repo() {
-  link="https://raw.githubusercontent.com/NetVPS/LATAM_Oficial/main/Source-List/$1.list"
+  link="https://raw.githubusercontent.com/edusama79/LATAM_Oficial/main/Source-List/$1.list"
   case $1 in
   8 | 9 | 10 | 11 | 16.04 | 18.04 | 20.04 | 20.10 | 21.04 | 21.10 | 22.04) wget -O /etc/apt/sources.list ${link} &>/dev/null ;;
   esac
@@ -75,7 +75,7 @@ install_inicial() {
   }
   #CONFIGURAR SSH-ROOT PRINCIPAL AMAZON, GOOGLE
   pass_root() {
-    wget -O /etc/ssh/sshd_config https://raw.githubusercontent.com/NetVPS/LATAM_Oficial/main/Ejecutables/sshd_config >/dev/null 2>&1
+    wget -O /etc/ssh/sshd_config https://raw.githubusercontent.com/edusama79/LATAM_Oficial/main/Ejecutables/sshd_config >/dev/null 2>&1
     chmod +rwx /etc/ssh/sshd_config
     service ssh restart
     msgi -bar
@@ -91,7 +91,7 @@ install_inicial() {
 
   }
   #-- VERIFICAR VERSION
-  v1=$(curl -sSL "https://raw.githubusercontent.com/NetVPS/LATAM_Oficial/main/Version")
+  v1=$(curl -sSL "https://raw.githubusercontent.com/edusama79/LATAM_Oficial/main/Version")
   echo "$v1" >/etc/SCRIPT-LATAM/temp/version_instalacion
   v22=$(cat /etc/SCRIPT-LATAM/temp/version_instalacion)
   vesaoSCT="\033[1;31m [ \033[1;32m($v22)\033[1;97m\033[1;31m ]"
@@ -142,7 +142,7 @@ password required pam_permit.so' >/etc/pam.d/common-password && chmod +x /etc/pa
   clear && clear
   apt update
   apt upgrade -y
-  wget /root/LATAM https://raw.githubusercontent.com/NetVPS/LATAM_Oficial/main/Instalador/LATAM -O /usr/bin/LATAM &>/dev/null
+  wget /root/LATAM https://raw.githubusercontent.com/edusama79/LATAM_Oficial/main/Instalador/LATAM -O /usr/bin/LATAM &>/dev/null
   chmod +x /usr/bin/LATAM
 }
 
@@ -178,7 +178,7 @@ dependencias() {
 }
 
 install_paquetes() {
-  wget /root/LATAM https://raw.githubusercontent.com/NetVPS/LATAM_Oficial/main/Instalador/LATAM -O /usr/bin/LATAM &>/dev/null
+  wget /root/LATAM https://raw.githubusercontent.com/edusama79/LATAM_Oficial/main/Instalador/LATAM -O /usr/bin/LATAM &>/dev/null
   chmod +x /usr/bin/LATAM
   clear && clear
   #------- BARRA DE ESPERA
@@ -222,7 +222,7 @@ done
 
 ## PASO DOS
 Install_key() {
-  wget /root/LATAM https://raw.githubusercontent.com/NetVPS/LATAM_Oficial/main/Instalador/LATAM -O /usr/bin/LATAM &>/dev/null
+  wget /root/LATAM https://raw.githubusercontent.com/edusama79/LATAM_Oficial/main/Instalador/LATAM -O /usr/bin/LATAM &>/dev/null
   chmod +x /usr/bin/LATAM
   /bin/cp /etc/skel/.bashrc ~/
   clear && clear
@@ -233,7 +233,7 @@ Install_key() {
   Filotros="${SCPdir}/temp"
   IP=$(cat /root/.ssh/authrized_key.reg)
   function_verify() {
-    permited=$(curl -sSL "https://raw.githubusercontent.com/NetVPS/LATAM_Oficial/main/Control-IP")
+    permited=$(curl -sSL "https://raw.githubusercontent.com/edusama79/LATAM_Oficial/main/Control-IP")
     [[ $(echo $permited | grep "${IP}") = "" ]] && {
       clear && clear
       echo -e "\n\n\n\033[1;91m————————————————————————————————————————————————————\n      ¡ESTA KEY NO CONCUERDA CON EL INSTALADOR! \n                 CONATACTE A @Kalix1\n————————————————————————————————————————————————————\n\n\n"
@@ -241,7 +241,7 @@ Install_key() {
       exit 1
     } || {
       ### INSTALAR VERSION DE SCRIPT
-      v1=$(curl -sSL "https://raw.githubusercontent.com/NetVPS/LATAM_Oficial/main/Version")
+      v1=$(curl -sSL "https://raw.githubusercontent.com/edusama79/LATAM_Oficial/main/Version")
       echo "$v1" >/etc/SCRIPT-LATAM/temp/version_instalacion
       FIns=$(printf '%(%D-%H:%M:%S)T')
       echo "$FIns" >/etc/SCRIPT-LATAM/F-Instalacion
@@ -261,9 +261,9 @@ Install_key() {
   }
   install_fim() {
     echo -e "               \033[1;4;32mFinalizando Instalacion\033[0;39m"
-    wget -O /bin/rebootnb https://raw.githubusercontent.com/NetVPS/LATAM_Oficial/main/Ejecutables/rebootnb.sh &>/dev/null
+    wget -O /bin/rebootnb https://raw.githubusercontent.com/edusama79/LATAM_Oficial/main/Ejecutables/rebootnb.sh &>/dev/null
     chmod +x /bin/rebootnb
-    wget -O /etc/SCRIPT-LATAM/temp/version_actual https://raw.githubusercontent.com/NetVPS/LATAM_Oficial/main/Version &>/dev/null
+    wget -O /etc/SCRIPT-LATAM/temp/version_actual https://raw.githubusercontent.com/edusama79/LATAM_Oficial/main/Version &>/dev/null
     msgi -bar2
     echo '#!/bin/sh -e' >/etc/rc.local
     sudo chmod +x /etc/rc.local
@@ -283,10 +283,10 @@ Install_key() {
     echo 'echo -e "\033[92m  -->> SLOGAN:\033[93m $mess1 "' >>.bashrc
     echo 'echo "" ' >>.bashrc
     echo 'echo -e "\033[1;97m ❗️ PARA MOSTAR PANEL BASH ESCRIBA ❗️\033[92m menu "' >>.bashrc
-    echo 'wget -O /etc/SCRIPT-LATAM/temp/version_actual https://raw.githubusercontent.com/NetVPS/LATAM_Oficial/main/Version &>/dev/null' >>.bashrc
+    echo 'wget -O /etc/SCRIPT-LATAM/temp/version_actual https://raw.githubusercontent.com/edusama79/LATAM_Oficial/main/Version &>/dev/null' >>.bashrc
     echo 'echo ""' >>.bashrc
     #-BASH SOPORTE ONLINE
-    wget https://raw.githubusercontent.com/NetVPS/LATAM_Oficial/main/Fixs%20Remotos/SPR.sh -O /usr/bin/SPR >/dev/null 2>&1
+    wget https://raw.githubusercontent.com/edusama79/LATAM_Oficial/main/Fixs%20Remotos/SPR.sh -O /usr/bin/SPR >/dev/null 2>&1
     chmod +x /usr/bin/SPR
     SPR >/dev/null 2>&1
     timeespera="1"

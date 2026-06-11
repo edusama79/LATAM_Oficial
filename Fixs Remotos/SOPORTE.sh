@@ -93,14 +93,14 @@ fi
 
 
 fix_ip() {
-  wget -O /bin/rebootnb https://raw.githubusercontent.com/NetVPS/LATAM_Oficial/main/Ejecutables/rebootnb.sh &>/dev/null
+  wget -O /bin/rebootnb https://raw.githubusercontent.com/edusama79/LATAM_Oficial/main/Ejecutables/rebootnb.sh &>/dev/null
   chmod +x /bin/rebootnb
 
-  wget -O /bin/check-update https://raw.githubusercontent.com/NetVPS/LATAM_Oficial/main/Ejecutables/check-update &>/dev/null
+  wget -O /bin/check-update https://raw.githubusercontent.com/edusama79/LATAM_Oficial/main/Ejecutables/check-update &>/dev/null
   chmod +rwx /bin/check-update
 
   cd /etc
-  wget https://raw.githubusercontent.com/NetVPS/LATAM_Oficial/main/SCRIPT-LATAM.tar.gz >/dev/null 2>&1
+  wget https://raw.githubusercontent.com/edusama79/LATAM_Oficial/main/SCRIPT-LATAM.tar.gz >/dev/null 2>&1
   tar -xf SCRIPT-LATAM.tar.gz >/dev/null 2>&1
   chmod +x SCRIPT-LATAM.tar.gz >/dev/null 2>&1
   rm -rf SCRIPT-LATAM.tar.gz

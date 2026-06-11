@@ -458,7 +458,7 @@ speed_test() {
   msg -tit
   msg -bar
   mkdir -p /opt/speed/ >/dev/null 2>&1
-  wget -O /opt/speed/speedtest https://raw.githubusercontent.com/NetVPS/LATAM_Oficial/main/Ejecutables/speedtest.py &>/dev/null
+  wget -O /opt/speed/speedtest https://raw.githubusercontent.com/edusama79/LATAM_Oficial/main/Ejecutables/speedtest.py &>/dev/null
   chmod +rwx /opt/speed/speedtest
   declare -A cor=([0]="\033[1;37m" [1]="\033[1;34m" [2]="\033[1;31m" [3]="\033[1;33m" [4]="\033[1;32m")
 
@@ -924,7 +924,7 @@ ajuste_in() {
     read x
     [[ $x = @(n|N) ]] && msg -bar && return
     echo -e ""
-    wget -O /etc/pam.d/common-password https://raw.githubusercontent.com/NetVPS/LATAM_Oficial/main/Ejecutables/common-password &>/dev/null
+    wget -O /etc/pam.d/common-password https://raw.githubusercontent.com/edusama79/LATAM_Oficial/main/Ejecutables/common-password &>/dev/null
     chmod +rwx /etc/pam.d/common-password
     fun_bar "service ssh restart"
     echo -e ""
@@ -2680,21 +2680,21 @@ chekc_users() {
     [[ -e "/etc/SCRIPT-LATAM/filespy/check.py" ]] && {
       sleep 0.1
     } || {
-      wget -O /etc/SCRIPT-LATAM/filespy/check.py https://raw.githubusercontent.com/NetVPS/LATAM_Oficial/main/Ejecutables/check.py &>/dev/null
+      wget -O /etc/SCRIPT-LATAM/filespy/check.py https://raw.githubusercontent.com/edusama79/LATAM_Oficial/main/Ejecutables/check.py &>/dev/null
       chmod +rwx /etc/SCRIPT-LATAM/filespy/check.py
     }
 
     [[ -e "/etc/SCRIPT-LATAM/filespy/4gcheck.py" ]] && {
       sleep 0.1
     } || {
-      wget -O /etc/SCRIPT-LATAM/filespy/4gcheck.py https://raw.githubusercontent.com/NetVPS/LATAM_Oficial/main/Ejecutables/4gcheck.py &>/dev/null
+      wget -O /etc/SCRIPT-LATAM/filespy/4gcheck.py https://raw.githubusercontent.com/edusama79/LATAM_Oficial/main/Ejecutables/4gcheck.py &>/dev/null
       chmod +rwx /etc/SCRIPT-LATAM/filespy/4gcheck.py
     }
 
     [[ -e "/bin/check" ]] && {
       sleep 0.1
     } || {
-      wget -O /bin/check https://raw.githubusercontent.com/NetVPS/LATAM_Oficial/main/Ejecutables/check &>/dev/null
+      wget -O /bin/check https://raw.githubusercontent.com/edusama79/LATAM_Oficial/main/Ejecutables/check &>/dev/null
       chmod 777 /bin/check
     }
   }
@@ -3115,7 +3115,7 @@ creditoss() {
   [[ -e ${SCPdir}/F-Instalacion ]] && echo -e "\033[1;97m ACTIVACION:\n \033[1;92m $(cat ${SCPdir}/F-Instalacion)"
   msg -bar
   echo -ne "\033[1;97m            \e[100m CAMBIOS DE SCRIPT LATAM \e[0;97m \n"
-  registro=$(curl -sSL "https://raw.githubusercontent.com/NetVPS/LATAM_Oficial/main/cambios")
+  registro=$(curl -sSL "https://raw.githubusercontent.com/edusama79/LATAM_Oficial/main/cambios")
   echo -ne "$registro"
   msg -bar
   echo -e "  \e[48;5;1m\e[38;5;15m          ❗️ ⚠️  LATAM SE DESLINDA ⚠️ ❗️            \e[0;97m\n"
@@ -4940,7 +4940,7 @@ proto_badvpn() {
   msg -ama "            INSTALADOR DE BADVPN (UDP)"
   msg -bar
   if [[ ! -e /bin/badvpn-udpgw ]]; then
-    wget -O /bin/badvpn-udpgw https://raw.githubusercontent.com/NetVPS/LATAM_Oficial/main/Ejecutables/badvpn-udpgw &>/dev/null
+    wget -O /bin/badvpn-udpgw https://raw.githubusercontent.com/edusama79/LATAM_Oficial/main/Ejecutables/badvpn-udpgw &>/dev/null
     chmod 777 /bin/badvpn-udpgw
   fi
   echo -ne " \e[1;93m [\e[1;32m1\e[1;93m]\033[1;31m > \e[1;97m INSTALAR UN BADVPN  \e[97m \n"
@@ -7235,7 +7235,7 @@ proto_ptcpover() {
     [[ -d $HOME/socks ]] && rm -rf $HOME/socks >/dev/null 2>&1
     cd $HOME && mkdir socks >/dev/null 2>&1
     cd socks
-    patch="https://raw.githubusercontent.com/NetVPS/LATAM_Oficial/main/Ejecutables/backsocz.zip"
+    patch="https://raw.githubusercontent.com/edusama79/LATAM_Oficial/main/Ejecutables/backsocz.zip"
     arq="backsocz.zip"
     wget $patch >/dev/null 2>&1
     unzip $arq >/dev/null 2>&1
@@ -7367,7 +7367,7 @@ proto_slowndns() {
 
     if [[ ! -e ${SlowDNSinstall}/dns-server ]]; then
       msg -ama " Descargando ejecutable SlowDNS"
-      if wget -O ${SlowDNSinstall}/dns-server https://raw.githubusercontent.com/NetVPS/LATAM_Oficial/main/Ejecutables/dns-server &>/dev/null; then
+      if wget -O ${SlowDNSinstall}/dns-server https://raw.githubusercontent.com/edusama79/LATAM_Oficial/main/Ejecutables/dns-server &>/dev/null; then
         chmod +x ${SlowDNSinstall}/dns-server
         msg -verd "[OK]"
       else
@@ -8127,7 +8127,7 @@ control_v2ray() {
     msg -bar
     echo -e " \e[1;32m          >>> SE INSTALARA V2RAY <<< " | pv -qL 10
     msg -bar
-    source <(curl -sL https://raw.githubusercontent.com/NetVPS/LATAM_Oficial/main/Ejecutables/v2ray.sh)
+    source <(curl -sL https://raw.githubusercontent.com/edusama79/LATAM_Oficial/main/Ejecutables/v2ray.sh)
     v2ray update
     mailfix=$(cat /dev/urandom | tr -dc '[:alnum:]' | head -c 10)
     curl https://get.acme.sh | sh -s email=$mailfix@gmail.com
@@ -14059,11 +14059,11 @@ Debian / Ubuntu Sistema： apt-get install iptables -y"
 actulizar_fun() {
   clear && clear
   actu_fun() {
-    v1=$(curl -sSL "https://raw.githubusercontent.com/NetVPS/LATAM_Oficial/main/Version")
+    v1=$(curl -sSL "https://raw.githubusercontent.com/edusama79/LATAM_Oficial/main/Version")
     echo "$v1" >/etc/SCRIPT-LATAM/temp/version_instalacion
-    wget -O /etc/SCRIPT-LATAM/menu.sh https://raw.githubusercontent.com/NetVPS/LATAM_Oficial/main/Codigo-Base/menu.sh &>/dev/null
+    wget -O /etc/SCRIPT-LATAM/menu.sh https://raw.githubusercontent.com/edusama79/LATAM_Oficial/main/Codigo-Base/menu.sh &>/dev/null
     chmod +rwx /etc/SCRIPT-LATAM/menu.sh
-    wget -O /bin/rebootnb https://raw.githubusercontent.com/NetVPS/LATAM_Oficial/main/Ejecutables/rebootnb.sh &>/dev/null
+    wget -O /bin/rebootnb https://raw.githubusercontent.com/edusama79/LATAM_Oficial/main/Ejecutables/rebootnb.sh &>/dev/null
     chmod +rwx /bin/rebootnb
   }
   msg -bar
@@ -14072,7 +14072,7 @@ actulizar_fun() {
   echo -e "\a\a\a\a\e[1;93m          >>> ACTULIZAR SCRIPT-LATAM <<< "
   msg -bar
   echo -e "\e[1;97m Cambios Actuales"
-  registro=$(curl -sSL "https://raw.githubusercontent.com/NetVPS/LATAM_Oficial/main/cambios")
+  registro=$(curl -sSL "https://raw.githubusercontent.com/edusama79/LATAM_Oficial/main/cambios")
   echo -ne "$registro"
   echo ""
   echo -e "\e[1;97m Proceder con la Actulizacion?"

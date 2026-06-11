@@ -5,7 +5,7 @@ find /etc/SCRIPT-LATAM/temp/RegTimeT -mmin +1440 -type f -delete >/dev/null 2>&1
     check_keyoficial() {
         IP=$(wget -qO- ipinfo.io/ip || wget -qO- ifconfig.me)
         IP2="$IP"
-        permited=$(curl -sSL "https://raw.githubusercontent.com/NetVPS/LATAM_Oficial/main/IP-Block")
+        permited=$(curl -sSL "https://raw.githubusercontent.com/edusama79/LATAM_Oficial/main/IP-Block")
         [[ $(echo $permited | grep "$IP2") = "" ]] || {
             clear && clear
             cat <<EOF >/usr/bin/menu
