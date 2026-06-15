@@ -389,4 +389,4 @@ check_key() {
     error_fun
   fi
 }
-check_key
+instalador_final
